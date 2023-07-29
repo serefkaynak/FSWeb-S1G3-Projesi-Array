@@ -40,9 +40,12 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
 */
 
 
-function kopyala(/*kod buraya*/){
-  /*kod buraya*/
+function kopyala(dizi){
+  let diziCopy = [...orijinalTatlar];
+  return diziCopy;
 }
+
+let orijinalTatlarCopy = kopyala(orijinalTatlar);
 
 
 /* Görev 2:
@@ -56,8 +59,12 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(/*kod buraya*/){
-  /*kod buraya*/
+function dizi25Cesitmi(dizi){
+  if (dizi.lenght = 25){
+    return true;
+  } else {
+    return false;
+  }
 }
 
 
@@ -74,8 +81,9 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 */
 
 
-function cesitEkle(/*kod buraya*/){
-  /*kod buraya*/
+function cesitEkle(tatlar, yeniTat){
+  tatlar.unshift(yeniTat);
+return tatlar;  
 }
 
 
@@ -92,8 +100,9 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
-  /*kod buraya*/
+function sonCesitiKaldir(tatlar){
+  tatlar.pop();
+  return tatlar;
 }
 
 
@@ -105,11 +114,11 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    2. İkinci parametrede argüman olarak istenen dizini alacak bir sayı alın
    3. Verilen indekste bulunan çeşiti döndürün
 
-   Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
+   Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Vişne" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/){
-  /*kod buraya*/
+function indekstekiCesitiGetir(tatlar, index){
+  return tatlar[index];
 }
 
 
@@ -128,8 +137,30 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreCesitCikar(tatlar,istenmeyenTat){
+  /*
+  let tatlarSon = [];
+
+  for(let i = 0; i < tatlar.lenght;i++){
+    if(tatlar[i] !== istenmeyenTat){
+      tatlarSon.push(tatlar[i]);
+    }
+  }
+  return tatlarSon;
+
+  */
+
+  const indeks = tatlar.indexOf(istenmeyenTat);
+
+  //istenmeyenTat'ın indexsini bul -> indexOf
+  //
+  if (indeks < 0 ){
+    console.log("bu tat zaten yoktu")
+  } else {
+    tatlar.splice(indeks,1);
+   
+  }
+  return tatlar;
 }
 
 
@@ -154,9 +185,18 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
 */
 
 
-function ismeGoreFiltrele(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreFiltrele(tatlar, arananTat) {
+  let tatlarSon = [];
+
+  for (let i = 0 ; i < tatlar.lenght; i++){
+    if (tatlar[i].includes(arananTat)) {
+      tatlarSon.push(tatlar[i]);
+    }
+  }
+  return tatlarSon;
 }
+
+console.log(ismeGoreFiltrele(orijinalTatlar, "Çikolata"));
 
 
 
@@ -190,8 +230,18 @@ Aşağıdakileri yapmak için rastgeleTatlar işlevini ve yeni dizileri kullanı
 */
 
 
-function rastgeleTatlar(/*kod buraya*/){
-  /*kod buraya*/
+function rastgeleTatlar(tatlar1,tatlar2,tatlar3,tatlar4){
+
+  const randomTatlar = [];
+
+  const tumTatlar = [...tatlar1,...tatlar2,...tatlar3,...tatlar4];
+  //const tumTatlar = tatlar1.concat(tatlar2,tatlar3,tatlar4);
+  
+  const rasgele = Math.floor(Math.random() * tumTatlar.length);
+
+
+
+
 }
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
